@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Я дома</title>
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial;
+}
+
+.text {
+  color: white;
+  font-size: 60px;
+  z-index: 2;
+}
+
+/* летающие домики */
+.house {
+  position: absolute;
+  font-size: 40px;
+  animation: fly linear infinite;
+  opacity: 0.8;
+}
+
+@keyframes fly {
+  from {
+    transform: translateY(100vh) translateX(0);
+  }
+  to {
+    transform: translateY(-120vh) translateX(100px);
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="text">Я дома</div>
+
+<script>
+// создаём летающие домики
+for (let i = 0; i < 15; i++) {
+  let house = document.createElement("div");
+  house.className = "house";
+  house.innerText = "🏠";
+
+  house.style.left = Math.random() * 100 + "vw";
+  house.style.animationDuration = (5 + Math.random() * 10) + "s";
+  house.style.fontSize = (20 + Math.random() * 40) + "px";
+
+  document.body.appendChild(house);
+}
+</script>
+
+</body>
+</html>
